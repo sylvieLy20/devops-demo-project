@@ -80,9 +80,11 @@ resources: {}
   #   memory: 128Mi
 
 livenessProbe:
-  httpGet:
-    path: /
-    port: http
+  httpGet: httpGet
+    path: /health
+    port: 8080
+    initialDelaySeconds: 30  # Nouvelle valeur (30 secondes)
+    periodSeconds: 5
 readinessProbe:
   httpGet:
     path: /
